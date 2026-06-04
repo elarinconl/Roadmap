@@ -1,0 +1,156 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Roadmap FY2026 design tokens.
+ * Base palette: white surfaces, hairline borders, near-black primary.
+ * Module accent = indigo.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-foreground-2: var(--muted-foreground-2);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Module accent (Planeación = indigo) */
+  --color-module: var(--module);
+  --color-module-foreground: var(--module-foreground);
+  --color-module-tint: var(--module-tint);
+  --color-module-tint-strong: var(--module-tint-strong);
+
+  /* Status / tint pairs */
+  --color-tint-green-bg: var(--tint-green-bg);
+  --color-tint-green-fg: var(--tint-green-fg);
+  --color-tint-blue-bg: var(--tint-blue-bg);
+  --color-tint-blue-fg: var(--tint-blue-fg);
+  --color-tint-lavender-bg: var(--tint-lavender-bg);
+  --color-tint-lavender-fg: var(--tint-lavender-fg);
+  --color-tint-amber-bg: var(--tint-amber-bg);
+  --color-tint-amber-fg: var(--tint-amber-fg);
+  --color-tint-red-bg: var(--tint-red-bg);
+  --color-tint-red-fg: var(--tint-red-fg);
+  --color-tint-gray-bg: var(--tint-gray-bg);
+  --color-tint-gray-fg: var(--tint-gray-fg);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem; /* 12px base for buttons/inputs/icon squares */
+
+  --background: oklch(1 0 0);              /* #FFFFFF */
+  --foreground: oklch(0.205 0.01 264);     /* #171A1F */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.205 0.01 264);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.205 0.01 264);
+
+  --primary: oklch(0.17 0.005 264);        /* #111114 near-black */
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.97 0.003 247);      /* #F3F4F6 */
+  --secondary-foreground: oklch(0.205 0.01 264);
+
+  --muted: oklch(0.97 0.003 247);          /* #F3F4F6 */
+  --muted-foreground: oklch(0.55 0.02 257);   /* #6B7280 */
+  --muted-foreground-2: oklch(0.7 0.02 257);  /* #9CA3AF */
+
+  --accent: oklch(0.96 0.02 277);          /* indigo tint */
+  --accent-foreground: oklch(0.4 0.18 277);
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.945 0.004 247);        /* #ECEEF1 */
+  --input: oklch(0.945 0.004 247);
+  --ring: oklch(0.55 0.22 277);
+
+  /* Module accent — Planeación = indigo (#4F46E5 / #EEF2FF) */
+  --module: oklch(0.55 0.22 277);
+  --module-foreground: oklch(1 0 0);
+  --module-tint: oklch(0.965 0.018 277);
+  --module-tint-strong: oklch(0.93 0.04 277);
+
+  /* Status tints (fondo / texto) */
+  --tint-green-bg: oklch(0.975 0.025 160);    /* #ECFDF5 */
+  --tint-green-fg: oklch(0.58 0.13 160);      /* #059669 */
+  --tint-blue-bg: oklch(0.97 0.018 264);      /* #EFF4FF */
+  --tint-blue-fg: oklch(0.55 0.2 264);        /* #2563EB */
+  --tint-lavender-bg: oklch(0.97 0.02 295);   /* #F5F3FF */
+  --tint-lavender-fg: oklch(0.5 0.22 295);    /* #7C3AED */
+  --tint-amber-bg: oklch(0.975 0.03 75);      /* #FEF3E2 */
+  --tint-amber-fg: oklch(0.65 0.16 60);       /* #D97706 */
+  --tint-red-bg: oklch(0.96 0.03 25);         /* #FEE2E2 */
+  --tint-red-fg: oklch(0.58 0.22 25);         /* #DC2626 */
+  --tint-gray-bg: oklch(0.97 0.003 247);      /* #F3F4F6 */
+  --tint-gray-fg: oklch(0.55 0.02 257);       /* #6B7280 */
+}
+
+.dark {
+  /* Dark mode not used in MVP — keep base values for safety */
+  --background: oklch(0.17 0.005 264);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.205 0.01 264);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.205 0.01 264);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0.17 0.005 264);
+  --secondary: oklch(0.27 0.01 264);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.27 0.01 264);
+  --muted-foreground: oklch(0.7 0.02 257);
+  --muted-foreground-2: oklch(0.6 0.02 257);
+  --accent: oklch(0.27 0.04 277);
+  --accent-foreground: oklch(0.85 0.08 277);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.55 0.22 277);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
